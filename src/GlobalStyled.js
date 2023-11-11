@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, styled } from 'styled-components';
 
 export const GlobalStyled = createGlobalStyle`
 body {
@@ -50,3 +50,7 @@ p {
   list-style: none;
   }
 `;
+
+export const Card = styled.div`
+display: flex;
+justify-content: center;`;
