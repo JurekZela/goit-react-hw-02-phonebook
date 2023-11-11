@@ -19,9 +19,6 @@ display: flex;
 flex-direction: column;
 gap: 8px;
 width: 320px;
-border: 1px solid black;
-padding: 10px;
-margin-bottom: 15px;
 `;
 
 export const StyledField = styled(Field)`

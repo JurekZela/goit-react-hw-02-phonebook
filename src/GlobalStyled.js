@@ -1,4 +1,4 @@
-import { createGlobalStyle, styled } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyled = createGlobalStyle`
 body {
@@ -56,21 +56,4 @@ p {
 display: flex;
 justify-content: center;
   }
-`;
-
-export const Card = styled.div`
-display: flex;
-justify-content: center;
-flex-direction: column;
-`;
-
-export const Title = styled.p`
-margin-bottom: 22px;
-font-size: 22px;
-font-weight: 700;
-`;
-
-export const ListContact = styled.li`
-font-weight: 350px;
-font-size: 17px;
 `;

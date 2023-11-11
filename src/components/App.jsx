@@ -1,6 +1,7 @@
 import { Component } from 'react'
 import { PhoneBookForm } from './Phonebook/Phonebook';
-import { Card, Title, ListContact } from '../GlobalStyled';
+import { Title, Card } from './Contacts/Contacts-styled';
+import { Contacts } from './Contacts/Contacts';
 
 export class App extends Component {
   state = {
@@ -21,15 +22,7 @@ export class App extends Component {
       <Card>
         <PhoneBookForm />
         <Title>Contacts</Title>
-          <ul>
-            {
-            contacts.map(({ id, name, number }) => {
-              return (
-              <ListContact key={id}>{name}: {number}</ListContact>
-              )
-            })
-            }
-            </ul>
+        <Contacts list={contacts} />
         </Card>
       )
     }
