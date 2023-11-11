@@ -8,9 +8,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   padding: 30px;
-  background-color: #c6cccc29;
+  background: linear-gradient(to right, rgb(161, 255, 206), rgb(250, 255, 209));
 }
 
 code {
@@ -39,6 +38,10 @@ img {
   object-fit: cover;
 }
 
+li {
+  list-style: none;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -49,8 +52,25 @@ p {
   padding: 0;
   list-style: none;
   }
+  #root {
+display: flex;
+justify-content: center;
+  }
 `;
 
 export const Card = styled.div`
 display: flex;
-justify-content: center;`;
+justify-content: center;
+flex-direction: column;
+`;
+
+export const Title = styled.p`
+margin-bottom: 22px;
+font-size: 22px;
+font-weight: 700;
+`;
+
+export const ListContact = styled.li`
+font-weight: 350px;
+font-size: 17px;
+`;

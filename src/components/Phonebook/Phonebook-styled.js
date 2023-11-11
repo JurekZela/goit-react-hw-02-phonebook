@@ -3,11 +3,14 @@ import { Form, Field, ErrorMessage } from 'formik';
 
 
 export const Button = styled.button`
+background-color: rgb(255, 0, 129);
 padding: 5px;
 border: 1px solid black;
+color: rgb(255, 255, 255);
 &:hover {
-    background-color: blue;
+    background-color: rgba(255, 0, 130, 0.5) 0px 2px 25px;
     color: black;
+    border: 1px solid rgb(255, 255, 255);
 }
 `;
 
@@ -18,6 +21,7 @@ gap: 8px;
 width: 320px;
 border: 1px solid black;
 padding: 10px;
+margin-bottom: 15px;
 `;
 
 export const StyledField = styled(Field)`
