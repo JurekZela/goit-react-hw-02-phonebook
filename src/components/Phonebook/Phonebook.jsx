@@ -14,7 +14,7 @@ const SignupSchema = Yup.object().shape({
   });
   
 
-export const PhoneBookForm = () => {
+export const ContactForm = ({ onAdd }) => {
   return (
     <Formik
     initialValues={{
@@ -25,8 +25,7 @@ export const PhoneBookForm = () => {
     validationSchema={SignupSchema}
     onSubmit={async (values, actions) => {
       await new Promise((r) => setTimeout(r, 500));
-      alert(JSON.stringify(values, null, 2));
-      values.id = nanoid();
+      onAdd({ ...values, id: nanoid() });
       actions.resetForm();
     }}
   >

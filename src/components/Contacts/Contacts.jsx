@@ -1,6 +1,6 @@
 import { ListContact } from './Contacts-styled';
 
-export const Contacts = ({ list }) => {
+export const ContactList = ({ list }) => {
     return (
         <ul>
         {

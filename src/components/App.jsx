@@ -1,7 +1,8 @@
 import { Component } from 'react'
-import { PhoneBookForm } from './Phonebook/Phonebook';
+import { ContactForm } from './Phonebook/Phonebook';
 import { Title, Card } from './Contacts/Contacts-styled';
-import { Contacts } from './Contacts/Contacts';
+import { ContactList } from './Contacts/Contacts';
+import { Filter } from './Filter/Filter';
 
 export class App extends Component {
   state = {
@@ -12,18 +13,40 @@ export class App extends Component {
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
     ],
     filter: '',
-    name: '',
-    number: ''
   }
 
-    render() {
-      const { name, number, filter, contacts } = this.state;
+  onAdd = (newContact) => {
+    if (this.state.contacts.find(contact => contact.name.toLowerCase() === newContact.name.toLowerCase())) {
+      return alert(`${newContact.name} is already in contacts.`);
+    }
+
+    this.setState(prevState => {
+      return {
+        contacts: [...prevState.contacts, newContact]
+      }
+    });
+  };
+
+  searchContact = contact => {
+this.setState({
+  filter: contact,
+})
+  };
+  
+  render() {
+      const { contacts, filter } = this.state;
+
+      const visibleContacts = contacts.filter(contact => {
+        return  contact.name.toLowerCase().includes(filter.toLocaleLowerCase());
+      })
+
       return (
       <Card>
-        <PhoneBookForm />
+        <ContactForm onAdd={this.onAdd} />
         <Title>Contacts</Title>
-        <Contacts list={contacts} />
+        <Filter filter={filter} onSearchContact={this.searchContact} />
+        <ContactList list={visibleContacts} />
         </Card>
       )
     }
-      };
+  };
