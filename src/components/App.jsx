@@ -32,6 +32,12 @@ this.setState({
   filter: contact,
 })
   };
+
+  removeContact = contactId => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(({ id }) => id !== contactId)
+    }))
+  };
   
   render() {
       const { contacts, filter } = this.state;
@@ -45,7 +51,7 @@ this.setState({
         <ContactForm onAdd={this.onAdd} />
         <Title>Contacts</Title>
         <Filter filter={filter} onSearchContact={this.searchContact} />
-        <ContactList list={visibleContacts} />
+        <ContactList list={visibleContacts}  removeContact={this.removeContact} />
         </Card>
       )
     }
